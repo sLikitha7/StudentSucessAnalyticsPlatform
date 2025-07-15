@@ -1,0 +1,40 @@
+version: 2
+
+sources:
+  - name: university
+    description: "The university database"
+    database: university
+    schema: main
+    
+    tables:
+      - name: students
+        description: "Raw student data from university database"
+        identifier: "students"  # Actual table name in SQLite
+        columns:
+          - name: student_id
+            tests:
+              - not_null
+              - unique
+          - name: gpa
+            tests:
+              - not_null
+          - name: risk_score
+            tests:
+              - not_null
+
+      - name: course_grades
+        description: "Raw course grade records"
+        identifier: "course_grades"
+        columns:
+          - name: student_id
+            tests:
+              - not_null
+              - relationships:
+                  to: ref('stg_students')
+                  field: student_id
+          - name: course_code
+            tests:
+              - not_null
+          - name: grade
+            tests:
+              - not_null

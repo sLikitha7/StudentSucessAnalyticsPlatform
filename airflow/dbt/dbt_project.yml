@@ -1,0 +1,28 @@
+name: 'university_analytics'
+version: '1.0.0'
+config-version: 2
+profile: 'university_analytics'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_modules"
+
+models:
+  university_analytics:
+    staging:
+      +schema: staging
+      +materialized: table
+    marts:
+      core:
+        +schema: core
+        +materialized: table
+      analytics:
+        +schema: analytics
+        +materialized: table

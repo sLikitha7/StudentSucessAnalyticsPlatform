@@ -1,0 +1,12 @@
+university_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: sqlite
+      database: university
+      schema: main
+      schema_directory: /opt/airflow/data
+      database_file: "university.db"
+      schemas_and_paths:
+        main: /opt/airflow/data/university.db
+      threads: 1
