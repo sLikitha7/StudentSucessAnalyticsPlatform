@@ -14,7 +14,33 @@ A modular analytics platform that helps educational institutions monitor, predic
 
 ## Architecture
 
-![Architecture Diagram](./images/architecture_diagram.png)
+The platform architecture consists of the following components:
+
+```mermaid
+flowchart TD
+    A[Synthetic Data Generator] --> B[ETL Pipeline (Python, Pandas)]
+    B --> C[Data Warehouse (SQLite/Snowflake/Redshift)]
+    C --> D[DBT Transformations]
+    D --> E[Analytics Reports]
+    C --> F[ML Model Training & Prediction]
+    F --> G[At-risk Student Flags]
+    C --> H[Streamlit Dashboard]
+    B -.-> I[Airflow DAG Orchestration]
+    D -.-> I
+    F -.-> I
+    I -.-> B
+    I -.-> D
+    I -.-> F
+```
+
+**Description:**
+- **Synthetic Data Generator:** Creates sample student data for development and testing.
+- **ETL Pipeline:** Processes and loads data into the warehouse.
+- **Data Warehouse:** Stores raw and processed data (SQLite for dev, Snowflake/Redshift for prod).
+- **DBT Transformations:** Performs SQL-based data modeling and analytics.
+- **ML Model:** Predicts at-risk students using historical data.
+- **Streamlit Dashboard:** Visualizes KPIs, trends, and risk predictions.
+- **Airflow DAG:** Orchestrates and automates the entire workflow.
 
 ## Setup & Installation
 
