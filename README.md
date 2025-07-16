@@ -18,8 +18,8 @@ The platform architecture consists of the following components:
 
 ```mermaid
 flowchart TD
-    A[Synthetic Data Generator] --> B[ETL Pipeline (Python, Pandas)]
-    B --> C[Data Warehouse (SQLite/Snowflake/Redshift)]
+    A[Synthetic Data Generator] --> B[ETL Pipeline - Python, Pandas]
+    B --> C[Data Warehouse - SQLite, Snowflake, Redshift]
     C --> D[DBT Transformations]
     D --> E[Analytics Reports]
     C --> F[ML Model Training & Prediction]
