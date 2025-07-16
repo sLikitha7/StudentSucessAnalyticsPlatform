@@ -9,10 +9,15 @@ import pandas as pd
 from datetime import datetime
 import os
 
-# Configuration
-DB_PATH = "/opt/airflow/data/university.db"
-REPORTS_DIR = "/opt/airflow/reports"
+# Dynamically resolve the absolute path to this script
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Use paths relative to script location (safe for local and Airflow Docker)
+DB_PATH = os.path.join(SCRIPT_DIR, 'data', 'university.db')
+REPORTS_DIR = os.path.join(SCRIPT_DIR, 'reports')
 os.makedirs(REPORTS_DIR, exist_ok=True)
+
+print(f"Saving reports to: {os.path.abspath(REPORTS_DIR)}")
 
 def generate_risk_report():
     """Generate CSV report of at-risk students"""
@@ -89,7 +94,7 @@ def main():
         generate_department_report(),
         generate_course_performance_report()
     ]
-    print(f"Generated {len(reports)} reports in {REPORTS_DIR}")
+    print(f"Generated {len(reports)} reports in {os.path.abspath(REPORTS_DIR)}")
 
 if __name__ == "__main__":
     main()

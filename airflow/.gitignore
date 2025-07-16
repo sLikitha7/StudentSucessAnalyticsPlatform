@@ -1,0 +1,59 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+student_analytics_env/
+.env/
+.venv/
+venv/
+env/
+
+# Airflow
+airflow/logs/
+airflow/__pycache__/
+
+# DBT artifacts
+dbt/target/
+dbt/dbt_modules/
+dbt/__pycache__/
+
+# Jupyter/IPython
+.ipynb_checkpoints/
+
+# Data and reports (optional - if regenerated)
+data/
+reports/
+
+# SQLite DB or local database file (if any)
+*.sqlite
+*.db
+
+# VS Code settings
+.vscode/
+
+# Docker
+*.log
+docker-compose.override.yml
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Python virtual environment on Windows
+Lib/
+Include/
+Scripts/
+pyvenv.cfg
+
+# Test and coverage reports
+htmlcov/
+coverage.xml
+*.cover
+*.py,cover
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/

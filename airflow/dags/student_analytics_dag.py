@@ -53,7 +53,7 @@ run_dbt_task = BashOperator(
 # Task 3: Generate reports
 generate_reports_task = BashOperator(
     task_id='generate_analytics_reports',
-    bash_command='cd /opt/airflow && python student_analytics_platform.py',
+    bash_command='cd /opt/airflow && python generate_reports.py',
     dag=dag,
 )
 
