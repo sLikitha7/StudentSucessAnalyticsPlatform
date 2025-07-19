@@ -98,7 +98,7 @@ python generate_reports.py
     airflow dags trigger student_success_analytics
     ```
 
-## 📂 Outputs
+## Outputs
 
 - **Reports:** `./reports/*.csv`
 - **Dashboard:** [http://localhost:8501](http://localhost:8501)
@@ -129,7 +129,7 @@ For cloud deployment (e.g., AWS/GCP):
 docker-compose -f docker-compose.prod.yml up
 ```
 
-## 📈 Performance Metrics
+## Performance Metrics
 
 Below are key performance metrics achieved during a typical Airflow pipeline run (with 1,000 synthetic student records):
 
